@@ -1,6 +1,6 @@
 all:
-	$(MAKE) -C ../../ test_lumen_qt
+	$(MAKE) -C ../../ test_oracle_qt
 clean:
-	$(MAKE) -C ../../ test_lumen_qt_clean
+	$(MAKE) -C ../../ test_oracle_qt_clean
 check:
-	$(MAKE) -C ../../ test_lumen_qt_check
+	$(MAKE) -C ../../ test_oracle_qt_check

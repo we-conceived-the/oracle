@@ -123,7 +123,7 @@ public:
 };
 
 /**
- * Lumen RPC command dispatcher.
+ * Oracle RPC command dispatcher.
  */
 class CRPCTable
 {

@@ -1,0 +1,6 @@
+usr/local/bin/oracle-qt usr/bin
+share/pixmaps/oracle32.xpm usr/share/pixmaps
+share/pixmaps/oracle16.xpm usr/share/pixmaps
+share/pixmaps/oracle128.png usr/share/pixmaps
+debian/oracle-qt.desktop usr/share/applications
+debian/oracle-qt.protocol usr/share/kde4/services/

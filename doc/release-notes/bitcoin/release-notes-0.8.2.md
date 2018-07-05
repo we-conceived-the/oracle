@@ -116,7 +116,7 @@ Gregory Maxwell
 Jeff Garzik
 Jonas Schnelli
 Larry Gilbert
-Luke Lumenjr
+Luke Oraclejr
 Matt Corallo
 Michael Ford
 Mike Hearn

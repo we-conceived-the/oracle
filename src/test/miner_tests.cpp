@@ -17,7 +17,7 @@
 #include "util.h"
 #include "utilstrencodings.h"
 
-#include "test/test_lumen.h"
+#include "test/test_oracle.h"
 
 #include <boost/test/unit_test.hpp>
 

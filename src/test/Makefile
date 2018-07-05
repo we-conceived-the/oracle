@@ -1,6 +1,6 @@
 all:
-	$(MAKE) -C .. lumen_test
+	$(MAKE) -C .. oracle_test
 clean:
-	$(MAKE) -C .. lumen_test_clean
+	$(MAKE) -C .. oracle_test_clean
 check:
-	$(MAKE) -C .. lumen_test_check
+	$(MAKE) -C .. oracle_test_check

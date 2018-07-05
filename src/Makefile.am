@@ -55,15 +55,15 @@ TESTS =
 BENCHMARKS =
 
 if BUILD_BITCOIND
-  bin_PROGRAMS += lumend
+  bin_PROGRAMS += oracled
 endif
 
 if BUILD_BITCOIN_UTILS
-  bin_PROGRAMS += lumen-cli lumen-tx
+  bin_PROGRAMS += oracle-cli oracle-tx
 endif
 
 .PHONY: FORCE check-symbols check-security
-# lumen core #
+# oracle core #
 BITCOIN_CORE_H = \
   activemasternode.h \
   addressindex.h \
@@ -191,7 +191,7 @@ obj/build.h: FORCE
 	  $(abs_top_srcdir)
 libbitcoin_util_a-clientversion.$(OBJEXT): obj/build.h
 
-# server: shared between lumend and lumen-qt
+# server: shared between oracled and oracle-qt
 libbitcoin_server_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(MINIUPNPC_CPPFLAGS) $(EVENT_CFLAGS) $(EVENT_PTHREADS_CFLAGS)
 libbitcoin_server_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 libbitcoin_server_a_SOURCES = \
@@ -249,7 +249,7 @@ libbitcoin_zmq_a_SOURCES = \
 endif
 
 
-# wallet: shared between lumend and lumen-qt, but only linked
+# wallet: shared between oracled and oracle-qt, but only linked
 # when wallet enabled
 libbitcoin_wallet_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
 libbitcoin_wallet_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
@@ -320,7 +320,7 @@ crypto_libbitcoin_crypto_a_SOURCES = \
   crypto/sha512.cpp \
   crypto/sha512.h
 
-# common: shared between lumend, and lumen-qt and non-server tools
+# common: shared between oracled, and oracle-qt and non-server tools
 libbitcoin_common_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
 libbitcoin_common_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 libbitcoin_common_a_SOURCES = \
@@ -377,7 +377,7 @@ if GLIBC_BACK_COMPAT
 libbitcoin_util_a_SOURCES += compat/glibc_compat.cpp
 endif
 
-# cli: shared between lumen-cli and lumen-qt
+# cli: shared between oracle-cli and oracle-qt
 libbitcoin_cli_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
 libbitcoin_cli_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 libbitcoin_cli_a_SOURCES = \
@@ -388,16 +388,16 @@ nodist_libbitcoin_util_a_SOURCES = $(srcdir)/obj/build.h
 #
 
 # bitcoind binary #
-lumend_SOURCES = lumend.cpp
-lumend_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
-lumend_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-lumend_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+oracled_SOURCES = oracled.cpp
+oracled_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
+oracled_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+oracled_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if TARGET_WINDOWS
-lumend_SOURCES += lumend-res.rc
+oracled_SOURCES += oracled-res.rc
 endif
 
-lumend_LDADD = \
+oracled_LDADD = \
   $(LIBBITCOIN_SERVER) \
   $(LIBBITCOIN_COMMON) \
   $(LIBUNIVALUE) \
@@ -408,50 +408,50 @@ lumend_LDADD = \
   $(LIBSECP256K1)
 
 if ENABLE_ZMQ
-lumend_LDADD += $(LIBBITCOIN_ZMQ) $(ZMQ_LIBS)
+oracled_LDADD += $(LIBBITCOIN_ZMQ) $(ZMQ_LIBS)
 endif
 
 if ENABLE_WALLET
-lumend_LDADD += libbitcoin_wallet.a
+oracled_LDADD += libbitcoin_wallet.a
 endif
 
-lumend_LDADD += $(BOOST_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS) $(EVENT_PTHREADS_LIBS) $(EVENT_LIBS)
+oracled_LDADD += $(BOOST_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS) $(EVENT_PTHREADS_LIBS) $(EVENT_LIBS)
 
-# lumen-cli binary #
-lumen_cli_SOURCES = lumen-cli.cpp
-lumen_cli_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(EVENT_CFLAGS)
-lumen_cli_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-lumen_cli_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+# oracle-cli binary #
+oracle_cli_SOURCES = oracle-cli.cpp
+oracle_cli_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(EVENT_CFLAGS)
+oracle_cli_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+oracle_cli_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if TARGET_WINDOWS
-lumen_cli_SOURCES += lumen-cli-res.rc
+oracle_cli_SOURCES += oracle-cli-res.rc
 endif
 
-lumen_cli_LDADD = \
+oracle_cli_LDADD = \
   $(LIBBITCOIN_CLI) \
   $(LIBUNIVALUE) \
   $(LIBBITCOIN_UTIL)
-lumen_cli_LDADD += $(BOOST_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(EVENT_LIBS)
+oracle_cli_LDADD += $(BOOST_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(EVENT_LIBS)
 #
 
-# lumen-tx binary #
-lumen_tx_SOURCES = lumen-tx.cpp
-lumen_tx_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
-lumen_tx_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-lumen_tx_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+# oracle-tx binary #
+oracle_tx_SOURCES = oracle-tx.cpp
+oracle_tx_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
+oracle_tx_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+oracle_tx_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if TARGET_WINDOWS
-lumen_tx_SOURCES += lumen-tx-res.rc
+oracle_tx_SOURCES += oracle-tx-res.rc
 endif
 
-lumen_tx_LDADD = \
+oracle_tx_LDADD = \
   $(LIBUNIVALUE) \
   $(LIBBITCOIN_COMMON) \
   $(LIBBITCOIN_UTIL) \
   $(LIBBITCOIN_CRYPTO) \
   $(LIBSECP256K1)
 
-lumen_tx_LDADD += $(BOOST_LIBS) $(CRYPTO_LIBS)
+oracle_tx_LDADD += $(BOOST_LIBS) $(CRYPTO_LIBS)
 #
 
 # bitcoinconsensus library #

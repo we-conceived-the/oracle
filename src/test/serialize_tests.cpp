@@ -5,7 +5,7 @@
 #include "serialize.h"
 #include "streams.h"
 #include "hash.h"
-#include "test/test_lumen.h"
+#include "test/test_oracle.h"
 
 #include <stdint.h>
 

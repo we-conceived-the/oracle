@@ -1,6 +1,6 @@
 ### TestGen ###
 
-Utilities to generate test vectors for the data-driven Lumen tests.
+Utilities to generate test vectors for the data-driven Oracle tests.
 
 Usage: 
 

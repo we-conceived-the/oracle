@@ -1,11 +1,11 @@
 Sample configuration files for:
 
-SystemD: lumend.service
-Upstart: lumend.conf
-OpenRC:  lumend.openrc
-         lumend.openrcconf
-CentOS:  lumend.init
-OS X:    org.lumen.lumend.plist
+SystemD: oracled.service
+Upstart: oracled.conf
+OpenRC:  oracled.openrc
+         oracled.openrcconf
+CentOS:  oracled.init
+OS X:    org.oracle.oracled.plist
 
 have been made available to assist packagers in creating node packages here.
 

@@ -1,7 +1,7 @@
 // Copyright (c) 2010 Satoshi Nakamoto
 // Copyright (c) 2009-2015 The Bitcoin Core developers
 // Copyright (c) 2014-2017 The Dash Core developers
-// Copyright (c) 2018-2018 The Lumen Core developers
+// Copyright (c) 2018-2018 The Oracle Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -244,11 +244,11 @@ UniValue stop(const UniValue& params, bool fHelp)
     if (fHelp || params.size() > 1)
         throw runtime_error(
             "stop\n"
-            "\nStop Lumen Core server.");
+            "\nStop Oracle Core server.");
     // Event loop will exit after current HTTP requests have been handled, so
     // this reply will get back to the client.
     StartShutdown();
-    return "Lumen Core server stopping";
+    return "Oracle Core server stopping";
 }
 
 /**
@@ -343,19 +343,19 @@ static const CRPCCommand vRPCCommands[] =
     { "hidden",             "resendwallettransactions", &resendwallettransactions, true},
 #endif
 
-    /* Lumen features */
-    { "lumen",               "masternode",             &masternode,             true  },
-    { "lumen",               "masternodelist",         &masternodelist,         true  },
-    { "lumen",               "masternodebroadcast",    &masternodebroadcast,    true  },
-    { "lumen",               "gobject",                &gobject,                true  },
-    { "lumen",               "getgovernanceinfo",      &getgovernanceinfo,      true  },
-    { "lumen",               "getsuperblockbudget",    &getsuperblockbudget,    true  },
-    { "lumen",               "voteraw",                &voteraw,                true  },
-    { "lumen",               "mnsync",                 &mnsync,                 true  },
-    { "lumen",               "spork",                  &spork,                  true  },
-    { "lumen",               "getpoolinfo",            &getpoolinfo,            true  },
+    /* Oracle features */
+    { "oracle",               "masternode",             &masternode,             true  },
+    { "oracle",               "masternodelist",         &masternodelist,         true  },
+    { "oracle",               "masternodebroadcast",    &masternodebroadcast,    true  },
+    { "oracle",               "gobject",                &gobject,                true  },
+    { "oracle",               "getgovernanceinfo",      &getgovernanceinfo,      true  },
+    { "oracle",               "getsuperblockbudget",    &getsuperblockbudget,    true  },
+    { "oracle",               "voteraw",                &voteraw,                true  },
+    { "oracle",               "mnsync",                 &mnsync,                 true  },
+    { "oracle",               "spork",                  &spork,                  true  },
+    { "oracle",               "getpoolinfo",            &getpoolinfo,            true  },
 #ifdef ENABLE_WALLET
-    { "lumen",               "privatesend",            &privatesend,            false },
+    { "oracle",               "privatesend",            &privatesend,            false },
 
     /* Wallet */
     { "wallet",             "keepass",                &keepass,                true },
@@ -578,7 +578,7 @@ std::vector<std::string> CRPCTable::listCommands() const
 
 std::string HelpExampleCli(const std::string& methodname, const std::string& args)
 {
-    return "> lumen-cli " + methodname + " " + args + "\n";
+    return "> oracle-cli " + methodname + " " + args + "\n";
 }
 
 std::string HelpExampleRpc(const std::string& methodname, const std::string& args)

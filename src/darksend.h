@@ -1,5 +1,5 @@
 // Copyright (c) 2014-2017 The Dash Core developers
-// Copyright (c) 2018-2018 The Lumen Core developers
+// Copyright (c) 2018-2018 The Oracle Core developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -353,7 +353,7 @@ private:
 
     void CompletedTransaction(PoolMessage nMessageID);
 
-    /// Get the denominations for a specific amount of lumen.
+    /// Get the denominations for a specific amount of oracle.
     int GetDenominationsByAmounts(const std::vector<CAmount>& vecAmount);
 
     std::string GetMessageByID(PoolMessage nMessageID);

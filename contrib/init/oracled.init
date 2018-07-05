@@ -1,0 +1,67 @@
+#!/bin/bash
+#
+#  oracled The Oracle Core server.
+#
+#
+# chkconfig: 345 80 20
+# description: oracled
+# processname: oracled
+#
+
+# Source function library.
+. /etc/init.d/functions
+
+# you can override defaults in /etc/sysconfig/oracled, see below
+if [ -f /etc/sysconfig/oracled ]; then
+        . /etc/sysconfig/oracled
+fi
+
+RETVAL=0
+
+prog=oracled
+# you can override the lockfile via BITCOIND_LOCKFILE in /etc/sysconfig/oracled
+lockfile=${BITCOIND_LOCKFILE-/var/lock/subsys/oracled}
+
+# oracled defaults to /usr/bin/oracled, override with BITCOIND_BIN
+oracled=${BITCOIND_BIN-/usr/bin/oracled}
+
+# oracled opts default to -disablewallet, override with BITCOIND_OPTS
+oracled_opts=${BITCOIND_OPTS--disablewallet}
+
+start() {
+    echo -n $"Starting $prog: "
+    daemon $DAEMONOPTS $oracled $oracled_opts
+    RETVAL=$?
+    echo
+    [ $RETVAL -eq 0 ] && touch $lockfile
+    return $RETVAL
+}
+
+stop() {
+    echo -n $"Stopping $prog: "
+    killproc $prog
+    RETVAL=$?
+    echo
+    [ $RETVAL -eq 0 ] && rm -f $lockfile
+    return $RETVAL
+}
+
+case "$1" in
+    start)
+        start
+        ;;
+    stop)
+        stop
+        ;;
+    status)
+        status $prog
+        ;;
+    restart)
+        stop
+        start
+        ;;
+    *)
+        echo "Usage: service $prog {start|stop|status|restart}"
+        exit 1
+        ;;
+esac

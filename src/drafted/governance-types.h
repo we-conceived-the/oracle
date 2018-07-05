@@ -16,9 +16,9 @@ enum GovernanceObjectType {
     ValueOverride = 1, 
 
     // -------------------------------
-    // LumenNetwork - is the root node
-    LumenNetwork = 1000,
-    LumenNetworkVariable = 1001,
+    // OracleNetwork - is the root node
+    OracleNetwork = 1000,
+    OracleNetworkVariable = 1001,
     Category = 1002,
 
     // Actors

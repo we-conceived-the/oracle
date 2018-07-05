@@ -4,7 +4,7 @@
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #ifdef HAVE_CONFIG_H
-#include "config/lumen-config.h"
+#include "config/oracle-config.h"
 #endif
 
 #include "netbase.h"

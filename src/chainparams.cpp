@@ -1,7 +1,7 @@
 // Copyright (c) 2010 Satoshi Nakamoto
 // Copyright (c) 2009-2014 The Bitcoin Core developers
 // Copyright (c) 2014-2017 The Dash Core developers
-// Copyright (c) 2018-2018 The Lumen Core developers
+// Copyright (c) 2018-2018 The Oracle Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -89,8 +89,8 @@ public:
         consensus.BIP34Height = 0;
         consensus.BIP34Hash = uint256S("0x000005406efba08cf2147a81ef7b68f164d229b3049f0149fa8dbb19e65de886");
         consensus.powLimit = uint256S("00000fffff000000000000000000000000000000000000000000000000000000");
-        consensus.nPowTargetTimespan = 6 * 60; // Lumen: 6 minutes
-        consensus.nPowTargetSpacing = 90; // Lumen: 90 seconds
+        consensus.nPowTargetTimespan = 6 * 60; // Oracle: 6 minutes
+        consensus.nPowTargetSpacing = 90; // Oracle: 90 seconds
         consensus.fPowAllowMinDifficultyBlocks = false;
         consensus.fPowNoRetargeting = false;
         consensus.nRuleChangeActivationThreshold = 1916; // 95% of 2016
@@ -128,9 +128,9 @@ public:
 //        vFixedSeeds.clear();
 //        vSeeds.clear();
 
-        vSeeds.push_back(CDNSSeedData("seed1", "seed1.lumen.ooo"));
-        vSeeds.push_back(CDNSSeedData("seed2", "seed2.lumen.ooo"));
-        vSeeds.push_back(CDNSSeedData("seed3", "seed3.lumen.ooo"));
+        vSeeds.push_back(CDNSSeedData("seed1", "seed1.oracle.ooo"));
+        vSeeds.push_back(CDNSSeedData("seed2", "seed2.oracle.ooo"));
+        vSeeds.push_back(CDNSSeedData("seed3", "seed3.oracle.ooo"));
 
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,48);
@@ -192,8 +192,8 @@ public:
         consensus.BIP34Height = 0;
         consensus.BIP34Hash = uint256S("0x00000aa41cc4a995c084f842bd42d254d510d48a855eee057295ad1775a91294");
         consensus.powLimit = uint256S("00000fffff000000000000000000000000000000000000000000000000000000");
-        consensus.nPowTargetTimespan = 6 * 60; // Lumen: 6 minutes
-        consensus.nPowTargetSpacing = 90; // Lumen: 90 seconds
+        consensus.nPowTargetTimespan = 6 * 60; // Oracle: 6 minutes
+        consensus.nPowTargetSpacing = 90; // Oracle: 90 seconds
         consensus.fPowAllowMinDifficultyBlocks = true;
         consensus.fPowNoRetargeting = false;
         consensus.nRuleChangeActivationThreshold = 1512; // 75% for testchains
@@ -224,8 +224,8 @@ public:
 
         vFixedSeeds.clear();
         vSeeds.clear();
-//      vSeeds.push_back(CDNSSeedData("tseed1",  "tseed1.lumen.ooo"));
-//      vSeeds.push_back(CDNSSeedData("tseed2",  "tseed2.lumen.ooo"));
+//      vSeeds.push_back(CDNSSeedData("tseed1",  "tseed1.oracle.ooo"));
+//      vSeeds.push_back(CDNSSeedData("tseed2",  "tseed2.oracle.ooo"));
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,112);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,20);
@@ -287,8 +287,8 @@ public:
         consensus.BIP34Height = -1; // BIP34 has not necessarily activated on regtest
         consensus.BIP34Hash = uint256();
         consensus.powLimit = uint256S("7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
-        consensus.nPowTargetTimespan = 7 * 60; // Lumen: 6 minutes
-        consensus.nPowTargetSpacing = 90; // Lumen: 90 seconds
+        consensus.nPowTargetTimespan = 7 * 60; // Oracle: 6 minutes
+        consensus.nPowTargetSpacing = 90; // Oracle: 90 seconds
         consensus.fPowAllowMinDifficultyBlocks = true;
         consensus.fPowNoRetargeting = true;
         consensus.nRuleChangeActivationThreshold = 108; // 75% for testchains

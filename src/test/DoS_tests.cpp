@@ -13,7 +13,7 @@
 #include "serialize.h"
 #include "util.h"
 
-#include "test/test_lumen.h"
+#include "test/test_oracle.h"
 
 #include <stdint.h>
 

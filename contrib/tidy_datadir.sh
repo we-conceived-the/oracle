@@ -4,7 +4,7 @@ if [ -d "$1" ]; then
   cd "$1"
 else
   echo "Usage: $0 <datadir>" >&2
-  echo "Removes obsolete Lumen database files" >&2
+  echo "Removes obsolete Oracle database files" >&2
   exit 1
 fi
 
@@ -16,22 +16,22 @@ if [ -f wallet.dat -a -f peers.dat -a -f chainstate/CURRENT -a -f blocks/index/C
 
 case $LEVEL in
   0)
-    echo "Error: no Lumen datadir detected."
+    echo "Error: no Oracle datadir detected."
     exit 1
     ;;
   1)
-    echo "Detected old Lumen datadir (before 0.7)."
+    echo "Detected old Oracle datadir (before 0.7)."
     echo "Nothing to do."
     exit 0
     ;;
   2)
-    echo "Detected Lumen 0.7 datadir."
+    echo "Detected Oracle 0.7 datadir."
     ;;
   3)
-    echo "Detected Lumen pre-0.8 datadir."
+    echo "Detected Oracle pre-0.8 datadir."
     ;;
   4)
-    echo "Detected Lumen 0.8 datadir."
+    echo "Detected Oracle 0.8 datadir."
     ;;
 esac
 

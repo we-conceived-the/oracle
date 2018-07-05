@@ -1,11 +1,11 @@
-Lumen Core 0.12.1
+Oracle Core 0.12.1
 =====================
 
-This is the official reference wallet for Lumen digital currency and comprises the backbone of the Lumen peer-to-peer network. You can [download Lumen Core](https://www.lumen.ooo) or [build it yourself](#building) using the guides below.
+This is the official reference wallet for Oracle digital currency and comprises the backbone of the Oracle peer-to-peer network. You can [download Oracle Core](https://www.oracle.ooo) or [build it yourself](#building) using the guides below.
 
 Running
 ---------------------
-The following are some helpful notes on how to run Lumen on your native platform.
+The following are some helpful notes on how to run Oracle on your native platform.
 
 ### Unix
 
@@ -16,16 +16,16 @@ Unpack the files into a directory and run:
 
 ### Windows
 
-Unpack the files into a directory, and then run lumen-qt.exe.
+Unpack the files into a directory, and then run oracle-qt.exe.
 
 ### OS X
 
-Drag Lumen-Qt to your applications folder, and then run Lumen-Qt.
+Drag Oracle-Qt to your applications folder, and then run Oracle-Qt.
 
 
 Building
 ---------------------
-The following are developer notes on how to build Lumen Core on your native platform. They are not complete guides, but include notes on the necessary libraries, compile flags, etc.
+The following are developer notes on how to build Oracle Core on your native platform. They are not complete guides, but include notes on the necessary libraries, compile flags, etc.
 
 - [OS X Build Notes](build-osx.md)
 - [Unix Build Notes](build-unix.md)
@@ -35,7 +35,7 @@ The following are developer notes on how to build Lumen Core on your native plat
 
 Development
 ---------------------
-The Lumen Core repo's [root README](/README.md) contains relevant information on the development process and automated testing.
+The Oracle Core repo's [root README](/README.md) contains relevant information on the development process and automated testing.
 
 - [Developer Notes](developer-notes.md)
 - [Multiwallet Qt Development](multiwallet-qt.md)

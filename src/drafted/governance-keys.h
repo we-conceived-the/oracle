@@ -13,7 +13,7 @@ CCriticalSection cs_vGovernanceKeys;
 	
 	- Users will configure their keys, something like this:
 
-	lumen.conf:
+	oracle.conf:
 
 		addgovkey=PrivKey1:name1 #comments
 		addgovkey=PrivKey2:name2 #comments

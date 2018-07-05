@@ -7,8 +7,8 @@ GovernanceObjectType GovernanceStringToType(std::string strType) {
     if(strType == "AllTypes") type = AllTypes;
     if(strType == "Error") type = Error;
     if(strType == "ValueOverride") type = ValueOverride;
-    if(strType == "LumenNetwork") type = LumenNetwork;
-    if(strType == "LumenNetworkVariable") type = LumenNetworkVariable;
+    if(strType == "OracleNetwork") type = OracleNetwork;
+    if(strType == "OracleNetworkVariable") type = OracleNetworkVariable;
     if(strType == "Category") type = Category;
     if(strType == "Group") type = Group;
     if(strType == "User") type = User;
@@ -28,8 +28,8 @@ std::string GovernanceTypeToString(GovernanceObjectType type) {
     if(type == AllTypes) s = "AllTypes";
     if(type == Error) s = "Error";
     if(type == ValueOverride) s = "ValueOverride";
-    if(type == LumenNetwork) s = "LumenNetwork";
-    if(type == LumenNetworkVariable) s = "LumenNetworkVariable";
+    if(type == OracleNetwork) s = "OracleNetwork";
+    if(type == OracleNetworkVariable) s = "OracleNetworkVariable";
     if(type == Category) s = "Category";
     if(type == Group) s = "Group";
     if(type == User) s = "User";

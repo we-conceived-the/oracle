@@ -4,22 +4,22 @@
 
 	* means the category has an associated class
 	
-	CLumenNetwork: LUMEN NETWORK (ROOT)
+	COracleNetwork: ORACLE NETWORK (ROOT)
 	has:
 		vector<CNetworkVariable> vecNetworkVariables;
-		vector<CLumenProject> vecProjects;
+		vector<COracleProject> vecProjects;
 		vector<CGovernanceObject> vecProposals;
 		vector<CBudgetContract> vecContracts;
 		vector<CBudgetUsers> vecUsers;
 
-	CLumenProject:
+	COracleProject:
 	has:
 		name
 		employees
 
 */
 
-	// LUMEN NETWORK (ROOT)
+	// ORACLE NETWORK (ROOT)
 	// 	-> NETWORK VARIABLE
 	// 		-> switch, setting
 	// 	-> CATEGORIES

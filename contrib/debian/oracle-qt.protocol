@@ -1,0 +1,11 @@
+[Protocol]
+exec=oracle-qt '%u'
+protocol=oracle
+input=none
+output=none
+helper=true
+listing=
+reading=false
+writing=false
+makedir=false
+deleting=false

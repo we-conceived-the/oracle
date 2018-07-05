@@ -1,0 +1,20 @@
+<!DOCTYPE RCC><RCC version="1.0">
+    <qresource prefix="/translations">
+        <file alias="bg">locale/oracle_bg.qm</file>
+        <file alias="de">locale/oracle_de.qm</file>
+        <file alias="en">locale/oracle_en.qm</file>
+        <file alias="es">locale/oracle_es.qm</file>
+        <file alias="fi">locale/oracle_fi.qm</file>
+        <file alias="fr">locale/oracle_fr.qm</file>
+        <file alias="it">locale/oracle_it.qm</file>
+        <file alias="ja">locale/oracle_ja.qm</file>
+        <file alias="pl">locale/oracle_pl.qm</file>
+        <file alias="pt">locale/oracle_pt.qm</file>
+        <file alias="ru">locale/oracle_ru.qm</file>
+        <file alias="sk">locale/oracle_sk.qm</file>
+        <file alias="sv">locale/oracle_sv.qm</file>
+        <file alias="vi">locale/oracle_vi.qm</file>
+        <file alias="zh_CN">locale/oracle_zh_CN.qm</file>
+        <file alias="zh_TW">locale/oracle_zh_TW.qm</file>
+    </qresource>
+</RCC>

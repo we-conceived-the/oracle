@@ -9,8 +9,8 @@
 #include <vector>
 
 /**
- * CBaseChainParams defines the base parameters (shared between lumen-cli and lumend)
- * of a given instance of the Lumen system.
+ * CBaseChainParams defines the base parameters (shared between oracle-cli and oracled)
+ * of a given instance of the Oracle system.
  */
 class CBaseChainParams
 {

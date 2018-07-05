@@ -10,7 +10,7 @@
 #include "sync.h"
 #include "utilstrencodings.h"
 #include "utilmoneystr.h"
-#include "test/test_lumen.h"
+#include "test/test_oracle.h"
 
 #include <stdint.h>
 #include <vector>

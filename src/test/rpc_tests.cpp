@@ -8,7 +8,7 @@
 #include "base58.h"
 #include "netbase.h"
 
-#include "test/test_lumen.h"
+#include "test/test_oracle.h"
 
 #include <boost/algorithm/string.hpp>
 #include <boost/test/unit_test.hpp>

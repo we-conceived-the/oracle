@@ -1,7 +1,7 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2015 The Bitcoin Core developers
 // Copyright (c) 2014-2017 The Dash Core developers
-// Copyright (c) 2018-2018 The Lumen Core developers
+// Copyright (c) 2018-2018 The Oracle Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -58,7 +58,7 @@
 using namespace std;
 
 #if defined(NDEBUG)
-# error "Lumen Core cannot be compiled without assertions."
+# error "Oracle Core cannot be compiled without assertions."
 #endif
 
 /**
@@ -2380,7 +2380,7 @@ bool FindUndoPos(CValidationState &state, int nFile, CDiskBlockPos &pos, unsigne
 static CCheckQueue<CScriptCheck> scriptcheckqueue(128);
 
 void ThreadScriptCheck() {
-    RenameThread("lumen-scriptch");
+    RenameThread("oracle-scriptch");
     scriptcheckqueue.Thread();
 }
 
@@ -2752,7 +2752,7 @@ bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockIndex* pin
     int64_t nTime3 = GetTimeMicros(); nTimeConnect += nTime3 - nTime2;
     LogPrint("bench", "      - Connect %u transactions: %.2fms (%.3fms/tx, %.3fms/txin) [%.2fs]\n", (unsigned)block.vtx.size(), 0.001 * (nTime3 - nTime2), 0.001 * (nTime3 - nTime2) / block.vtx.size(), nInputs <= 1 ? 0 : 0.001 * (nTime3 - nTime2) / (nInputs-1), nTimeConnect * 0.000001);
 
-    // LUMEN : MODIFIED TO CHECK MASTERNODE PAYMENTS AND SUPERBLOCKS
+    // ORACLE : MODIFIED TO CHECK MASTERNODE PAYMENTS AND SUPERBLOCKS
 
     // It's possible that we simply don't have enough data and this could fail
     // (i.e. block itself could be a correct one and we need to store it),
@@ -2771,7 +2771,7 @@ bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockIndex* pin
         return state.DoS(0, error("ConnectBlock(LEN): couldn't find masternode or superblock payments"),
                                 REJECT_INVALID, "bad-cb-payee");
     }
-    // END LUMEN
+    // END ORACLE
 
     if (!control.Wait())
         return state.DoS(100, false);
@@ -3709,7 +3709,7 @@ bool CheckBlock(const CBlock& block, CValidationState& state, bool fCheckPOW, bo
                              REJECT_INVALID, "bad-cb-multiple");
 
 
-    // LUMEN : CHECK TRANSACTIONS FOR INSTANTSEND
+    // ORACLE : CHECK TRANSACTIONS FOR INSTANTSEND
 
     if(sporkManager.IsSporkActive(SPORK_3_INSTANTSEND_BLOCK_FILTERING)) {
         // We should never accept block which conflicts with completed transaction lock,
@@ -3739,7 +3739,7 @@ bool CheckBlock(const CBlock& block, CValidationState& state, bool fCheckPOW, bo
         LogPrintf("CheckBlock(LEN): spork is off, skipping transaction locking checks\n");
     }
 
-    // END LUMEN
+    // END ORACLE
 
     // Check transactions
     BOOST_FOREACH(const CTransaction& tx, block.vtx)
@@ -4910,7 +4910,7 @@ bool static AlreadyHave(const CInv& inv) EXCLUSIVE_LOCKS_REQUIRED(cs_main)
         return mapBlockIndex.count(inv.hash);
 
     /* 
-        Lumen Related Inventory Messages
+        Oracle Related Inventory Messages
 
         --
 

@@ -10,10 +10,10 @@
 
 /**
  * Name of client reported in the 'version' message. Report the same name
- * for both lumend and lumen-qt, to make it harder for attackers to
+ * for both oracled and oracle-qt, to make it harder for attackers to
  * target servers or GUI users specifically.
  */
-const std::string CLIENT_NAME("Lumen Core");
+const std::string CLIENT_NAME("Oracle Core");
 
 /**
  * Client version number

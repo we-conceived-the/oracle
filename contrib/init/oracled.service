@@ -1,0 +1,22 @@
+[Unit]
+Description=Oracle's distributed currency daemon
+After=network.target
+
+[Service]
+User=oraclecore
+Group=oraclecore
+
+Type=forking
+PIDFile=/var/lib/oracled/oracled.pid
+ExecStart=/usr/bin/oracled -daemon -pid=/var/lib/oracled/oracled.pid \
+-conf=/etc/oraclecore/oracle.conf -datadir=/var/lib/oracled -disablewallet
+
+Restart=always
+PrivateTmp=true
+TimeoutStopSec=60s
+TimeoutStartSec=2s
+StartLimitInterval=120s
+StartLimitBurst=5
+
+[Install]
+WantedBy=multi-user.target

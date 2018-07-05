@@ -1,0 +1,11 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Oracle
+Comment=Oracle P2P Cryptocurrency
+Exec=oracle-qt %u
+Terminal=false
+Type=Application
+Icon=oracle128
+MimeType=x-scheme-handler/oracle;
+Categories=Office;Finance;
+Name[en_US]=oracle-qt.desktop

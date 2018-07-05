@@ -1,9 +1,9 @@
 # Linearize
 Construct a linear, no-fork, best version of the blockchain.
 
-## Step 0: Install lumen_hash
+## Step 0: Install oracle_hash
 
-https://github.com/lumencoin/lumen_hash
+https://github.com/Government-of/oracle_hash
 
 ## Step 1: Download hash list
 

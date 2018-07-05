@@ -1,8 +1,8 @@
-Source: lumen
+Source: oracle
 Section: utils
 Priority: optional
-Maintainer: Holger Schinzel <holger@lumen.org>
-Uploaders: Holger Schinzel <holger@lumen.org>
+Maintainer: Holger Schinzel <holger@oracle.org>
+Uploaders: Holger Schinzel <holger@oracle.org>
 Build-Depends: debhelper,
  devscripts,
  automake,
@@ -24,45 +24,45 @@ Build-Depends: debhelper,
  libprotobuf-dev, protobuf-compiler,
  python
 Standards-Version: 3.9.2
-Homepage: https://www.lumen.org/
-Vcs-Git: git://github.com/lumencoin/lumen.git
-Vcs-Browser: https://github.com/lumencoin/lumen
+Homepage: https://www.oracle.org/
+Vcs-Git: git://github.com/Government-of/oracle.git
+Vcs-Browser: https://github.com/Government-of/oracle
 
-Package: lumend
+Package: oracled
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: peer-to-peer network based digital currency - daemon
- Lumen is an experimental new digital currency that enables anonymous, instant
- payments to anyone, anywhere in the world. Lumen uses peer-to-peer
+ Oracle is an experimental new digital currency that enables anonymous, instant
+ payments to anyone, anywhere in the world. Oracle uses peer-to-peer
  technology to operate with no central authority: managing transactions
- and issuing money are carried out collectively by the network. Lumen Core
+ and issuing money are carried out collectively by the network. Oracle Core
  is the name of the open source software which enables the use of this currency.
  .
- This package provides the daemon, lumend, and the CLI tool
- lumen-cli to interact with the daemon.
+ This package provides the daemon, oracled, and the CLI tool
+ oracle-cli to interact with the daemon.
 
-Package: lumen-qt
+Package: oracle-qt
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: peer-to-peer network based digital currency - Qt GUI
- Lumen is an experimental new digital currency that enables anonymous, instant
- payments to anyone, anywhere in the world. Lumen uses peer-to-peer
+ Oracle is an experimental new digital currency that enables anonymous, instant
+ payments to anyone, anywhere in the world. Oracle uses peer-to-peer
  technology to operate with no central authority: managing transactions
- and issuing money are carried out collectively by the network. Lumen Core
+ and issuing money are carried out collectively by the network. Oracle Core
  is the name of the open source software which enables the use of this currency.
  .
- This package provides Lumen-Qt, a GUI for Lumen based on Qt.
+ This package provides Oracle-Qt, a GUI for Oracle based on Qt.
 
-Package: lumen-tx
+Package: oracle-tx
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: peer-to-peer digital currency - standalone transaction tool
- Lumen is an experimental new digital currency that enables anonymous, instant
- payments to anyone, anywhere in the world. Lumen uses peer-to-peer
+ Oracle is an experimental new digital currency that enables anonymous, instant
+ payments to anyone, anywhere in the world. Oracle uses peer-to-peer
  technology to operate with no central authority: managing transactions
- and issuing money are carried out collectively by the network. Lumen Core
+ and issuing money are carried out collectively by the network. Oracle Core
  is the name of the open source software which enables the use of this currency.
  .
- This package provides lumen-tx, a command-line transaction creation
- tool which can be used without a lumen daemon.  Some means of
+ This package provides oracle-tx, a command-line transaction creation
+ tool which can be used without a oracle daemon.  Some means of
  exchanging minimal transaction data with peers is still required.

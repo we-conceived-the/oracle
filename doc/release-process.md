@@ -1,7 +1,7 @@
 Release Process
 ====================
 
-* Update translations, see [translation_process.md](https://github.com/lumencoin/lumen/blob/master/doc/translation_process.md#syncing-with-transifex)
+* Update translations, see [translation_process.md](https://github.com/Government-of/oracle/blob/master/doc/translation_process.md#syncing-with-transifex)
 * Update hardcoded [seeds](/contrib/seeds)
 
 * * *
@@ -10,14 +10,14 @@ Release Process
 Check out the source code in the following directory hierarchy.
 
 	cd /path/to/your/toplevel/build
-	git clone https://github.com/lumencoin/gitian.sigs.git
-	git clone https://github.com/lumencoin/lumen-detached-sigs.git
+	git clone https://github.com/Government-of/gitian.sigs.git
+	git clone https://github.com/Government-of/oracle-detached-sigs.git
 	git clone https://github.com/devrandom/gitian-builder.git
-	git clone https://github.com/lumencoin/lumen.git
+	git clone https://github.com/Government-of/oracle.git
 
-###Lumen Core maintainers/release engineers, update (commit) version in sources
+###Oracle Core maintainers/release engineers, update (commit) version in sources
 
-	pushd ./lumen
+	pushd ./oracle
 	contrib/verifysfbinaries/verify.sh
 	configure.ac
 	doc/README*
@@ -40,7 +40,7 @@ Check out the source code in the following directory hierarchy.
 
  Setup Gitian descriptors:
 
-	pushd ./lumen
+	pushd ./oracle
 	export SIGNER=(your Gitian key, ie bluematt, sipa, etc)
 	export VERSION=(new version, e.g. 0.8.0)
 	git fetch
@@ -76,52 +76,52 @@ Check out the source code in the following directory hierarchy.
 
 By default, Gitian will fetch source files as needed. To cache them ahead of time:
 
-	make -C ../lumen/depends download SOURCES_PATH=`pwd`/cache/common
+	make -C ../oracle/depends download SOURCES_PATH=`pwd`/cache/common
 
 Only missing files will be fetched, so this is safe to re-run for each build.
 
 NOTE: Offline builds must use the --url flag to ensure Gitian fetches only from local URLs. For example:
 ```
-./bin/gbuild --url lumen=/path/to/lumen,signature=/path/to/sigs {rest of arguments}
+./bin/gbuild --url oracle=/path/to/oracle,signature=/path/to/sigs {rest of arguments}
 ```
 The gbuild invocations below <b>DO NOT DO THIS</b> by default.
 
-###Build and sign Lumen Core for Linux, Windows, and OS X:
+###Build and sign Oracle Core for Linux, Windows, and OS X:
 
-	./bin/gbuild --commit lumen=v${VERSION} ../lumen/contrib/gitian-descriptors/gitian-linux.yml
-	./bin/gsign --signer $SIGNER --release ${VERSION}-linux --destination ../gitian.sigs/ ../lumen/contrib/gitian-descriptors/gitian-linux.yml
-	mv build/out/lumen-*.tar.gz build/out/src/lumen-*.tar.gz ../
+	./bin/gbuild --commit oracle=v${VERSION} ../oracle/contrib/gitian-descriptors/gitian-linux.yml
+	./bin/gsign --signer $SIGNER --release ${VERSION}-linux --destination ../gitian.sigs/ ../oracle/contrib/gitian-descriptors/gitian-linux.yml
+	mv build/out/oracle-*.tar.gz build/out/src/oracle-*.tar.gz ../
 
-	./bin/gbuild --commit lumen=v${VERSION} ../lumen/contrib/gitian-descriptors/gitian-win.yml
-	./bin/gsign --signer $SIGNER --release ${VERSION}-win-unsigned --destination ../gitian.sigs/ ../lumen/contrib/gitian-descriptors/gitian-win.yml
-	mv build/out/lumen-*-win-unsigned.tar.gz inputs/lumen-win-unsigned.tar.gz
-	mv build/out/lumen-*.zip build/out/lumen-*.exe ../
+	./bin/gbuild --commit oracle=v${VERSION} ../oracle/contrib/gitian-descriptors/gitian-win.yml
+	./bin/gsign --signer $SIGNER --release ${VERSION}-win-unsigned --destination ../gitian.sigs/ ../oracle/contrib/gitian-descriptors/gitian-win.yml
+	mv build/out/oracle-*-win-unsigned.tar.gz inputs/oracle-win-unsigned.tar.gz
+	mv build/out/oracle-*.zip build/out/oracle-*.exe ../
 
-	./bin/gbuild --commit lumen=v${VERSION} ../lumen/contrib/gitian-descriptors/gitian-osx.yml
-	./bin/gsign --signer $SIGNER --release ${VERSION}-osx-unsigned --destination ../gitian.sigs/ ../lumen/contrib/gitian-descriptors/gitian-osx.yml
-	mv build/out/lumen-*-osx-unsigned.tar.gz inputs/lumen-osx-unsigned.tar.gz
-	mv build/out/lumen-*.tar.gz build/out/lumen-*.dmg ../
+	./bin/gbuild --commit oracle=v${VERSION} ../oracle/contrib/gitian-descriptors/gitian-osx.yml
+	./bin/gsign --signer $SIGNER --release ${VERSION}-osx-unsigned --destination ../gitian.sigs/ ../oracle/contrib/gitian-descriptors/gitian-osx.yml
+	mv build/out/oracle-*-osx-unsigned.tar.gz inputs/oracle-osx-unsigned.tar.gz
+	mv build/out/oracle-*.tar.gz build/out/oracle-*.dmg ../
 	popd
 
   Build output expected:
 
-  1. source tarball (lumen-${VERSION}.tar.gz)
-  2. linux 32-bit and 64-bit dist tarballs (lumen-${VERSION}-linux[32|64].tar.gz)
-  3. windows 32-bit and 64-bit unsigned installers and dist zips (lumen-${VERSION}-win[32|64]-setup-unsigned.exe, lumen-${VERSION}-win[32|64].zip)
-  4. OS X unsigned installer and dist tarball (lumen-${VERSION}-osx-unsigned.dmg, lumen-${VERSION}-osx64.tar.gz)
+  1. source tarball (oracle-${VERSION}.tar.gz)
+  2. linux 32-bit and 64-bit dist tarballs (oracle-${VERSION}-linux[32|64].tar.gz)
+  3. windows 32-bit and 64-bit unsigned installers and dist zips (oracle-${VERSION}-win[32|64]-setup-unsigned.exe, oracle-${VERSION}-win[32|64].zip)
+  4. OS X unsigned installer and dist tarball (oracle-${VERSION}-osx-unsigned.dmg, oracle-${VERSION}-osx64.tar.gz)
   5. Gitian signatures (in gitian.sigs/${VERSION}-<linux|{win,osx}-unsigned>/(your Gitian key)/
 
 ###Verify other gitian builders signatures to your own. (Optional)
 
   Add other gitian builders keys to your gpg keyring
 
-	gpg --import ../lumen/contrib/gitian-downloader/*.pgp
+	gpg --import ../oracle/contrib/gitian-downloader/*.pgp
 
   Verify the signatures
 
-	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-linux ../lumen/contrib/gitian-descriptors/gitian-linux.yml
-	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-win-unsigned ../lumen/contrib/gitian-descriptors/gitian-win.yml
-	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-unsigned ../lumen/contrib/gitian-descriptors/gitian-osx.yml
+	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-linux ../oracle/contrib/gitian-descriptors/gitian-linux.yml
+	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-win-unsigned ../oracle/contrib/gitian-descriptors/gitian-win.yml
+	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-unsigned ../oracle/contrib/gitian-descriptors/gitian-osx.yml
 
 	popd
 
@@ -139,25 +139,25 @@ Commit your signature to gitian.sigs:
 
   Wait for Windows/OS X detached signatures:
 	Once the Windows/OS X builds each have 3 matching signatures, they will be signed with their respective release keys.
-	Detached signatures will then be committed to the [lumen-detached-sigs](https://github.com/lumencoin/lumen-detached-sigs) repository, which can be combined with the unsigned apps to create signed binaries.
+	Detached signatures will then be committed to the [oracle-detached-sigs](https://github.com/Government-of/oracle-detached-sigs) repository, which can be combined with the unsigned apps to create signed binaries.
 
   Create (and optionally verify) the signed OS X binary:
 
 	pushd ./gitian-builder
-	./bin/gbuild -i --commit signature=v${VERSION} ../lumen/contrib/gitian-descriptors/gitian-osx-signer.yml
-	./bin/gsign --signer $SIGNER --release ${VERSION}-osx-signed --destination ../gitian.sigs/ ../lumen/contrib/gitian-descriptors/gitian-osx-signer.yml
-	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-signed ../lumen/contrib/gitian-descriptors/gitian-osx-signer.yml
-	mv build/out/lumen-osx-signed.dmg ../lumen-${VERSION}-osx.dmg
+	./bin/gbuild -i --commit signature=v${VERSION} ../oracle/contrib/gitian-descriptors/gitian-osx-signer.yml
+	./bin/gsign --signer $SIGNER --release ${VERSION}-osx-signed --destination ../gitian.sigs/ ../oracle/contrib/gitian-descriptors/gitian-osx-signer.yml
+	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-signed ../oracle/contrib/gitian-descriptors/gitian-osx-signer.yml
+	mv build/out/oracle-osx-signed.dmg ../oracle-${VERSION}-osx.dmg
 	popd
 
   Create (and optionally verify) the signed Windows binaries:
 
 	pushd ./gitian-builder
-	./bin/gbuild -i --commit signature=v${VERSION} ../lumen/contrib/gitian-descriptors/gitian-win-signer.yml
-	./bin/gsign --signer $SIGNER --release ${VERSION}-win-signed --destination ../gitian.sigs/ ../lumen/contrib/gitian-descriptors/gitian-win-signer.yml
-	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-win-signed ../lumen/contrib/gitian-descriptors/gitian-win-signer.yml
-	mv build/out/lumen-*win64-setup.exe ../lumen-${VERSION}-win64-setup.exe
-	mv build/out/lumen-*win32-setup.exe ../lumen-${VERSION}-win32-setup.exe
+	./bin/gbuild -i --commit signature=v${VERSION} ../oracle/contrib/gitian-descriptors/gitian-win-signer.yml
+	./bin/gsign --signer $SIGNER --release ${VERSION}-win-signed --destination ../gitian.sigs/ ../oracle/contrib/gitian-descriptors/gitian-win-signer.yml
+	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-win-signed ../oracle/contrib/gitian-descriptors/gitian-win-signer.yml
+	mv build/out/oracle-*win64-setup.exe ../oracle-${VERSION}-win64-setup.exe
+	mv build/out/oracle-*win32-setup.exe ../oracle-${VERSION}-win32-setup.exe
 	popd
 
 Commit your signature for the signed OS X/Windows binaries:
@@ -182,21 +182,21 @@ rm SHA256SUMS
 (the digest algorithm is forced to sha256 to avoid confusion of the `Hash:` header that GPG adds with the SHA256 used for the files)
 Note: check that SHA256SUMS itself doesn't end up in SHA256SUMS, which is a spurious/nonsensical entry.
 
-- Upload zips and installers, as well as `SHA256SUMS.asc` from last step, to the lumen.org server
+- Upload zips and installers, as well as `SHA256SUMS.asc` from last step, to the oracle.org server
 
-- Update lumen.org
+- Update oracle.org
 
 - Announce the release:
 
-  - Release on Lumen forum: https://www.lumen.org/forum/topic/official-announcements.54/
+  - Release on Oracle forum: https://www.oracle.org/forum/topic/official-announcements.54/
 
-  - Lumen-development mailing list
+  - Oracle-development mailing list
 
-  - Update title of #lumencoin on Freenode IRC
+  - Update title of #Government-of on Freenode IRC
 
-  - Optionally reddit /r/Lumenpay, ... but this will usually sort out itself
+  - Optionally reddit /r/Oraclepay, ... but this will usually sort out itself
 
-- Notify flare so that he can start building [the PPAs](https://launchpad.net/~lumen.org/+archive/ubuntu/lumen)
+- Notify flare so that he can start building [the PPAs](https://launchpad.net/~oracle.org/+archive/ubuntu/oracle)
 
 - Add release notes for the new version to the directory `doc/release-notes` in git master
 
