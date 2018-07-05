@@ -90,10 +90,10 @@ OptionsDialog::OptionsDialog(QWidget *parent, bool enableWallet) :
     }
     
     /* Theme selector */
-	ui->theme->addItem(QString("LEN-blue"), QVariant("drkblue"));
-    ui->theme->addItem(QString("LEN-light"), QVariant("light"));
-    ui->theme->addItem(QString("LEN-Crownium"), QVariant("crownium"));
-    ui->theme->addItem(QString("LEN-traditional"), QVariant("trad"));
+	ui->theme->addItem(QString("ORACLE-blue"), QVariant("drkblue"));
+    ui->theme->addItem(QString("ORACLE-light"), QVariant("light"));
+    ui->theme->addItem(QString("ORACLE-Crownium"), QVariant("crownium"));
+    ui->theme->addItem(QString("ORACLE-traditional"), QVariant("trad"));
     
     /* Language selector */
     QDir translations(":translations");

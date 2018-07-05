@@ -162,7 +162,7 @@ AC_REQUIRE([AC_PROG_LN_S])dnl
 test -z "$LN_S" && LN_S="ln -s"
 _LT_DECL([], [LN_S], [1], [Whether we need soft or hard links])dnl
 dnl
-AC_REQUIRE([LT_CMD_MAX_LEN])dnl
+AC_REQUIRE([LT_CMD_MAX_ORACLE])dnl
 _LT_DECL([objext], [ac_objext], [0], [Object file suffix (normally "o")])dnl
 _LT_DECL([], [exeext], [0], [Executable file suffix (normally "")])dnl
 dnl
@@ -1533,13 +1533,13 @@ dnl aclocal-1.4 backwards compatibility:
 dnl AC_DEFUN([AC_LIBTOOL_LINKER_OPTION], [])
 
 
-# LT_CMD_MAX_LEN
+# LT_CMD_MAX_ORACLE
 #---------------
-AC_DEFUN([LT_CMD_MAX_LEN],
+AC_DEFUN([LT_CMD_MAX_ORACLE],
 [AC_REQUIRE([AC_CANONICAL_HOST])dnl
 # find the maximum length of command line arguments
 AC_MSG_CHECKING([the maximum length of command line arguments])
-AC_CACHE_VAL([lt_cv_sys_max_cmd_len], [dnl
+AC_CACHE_VAL([lt_cv_sys_max_cmd_oracle], [dnl
   i=0
   teststring="ABCD"
 
@@ -1665,12 +1665,12 @@ fi
 max_cmd_len=$lt_cv_sys_max_cmd_len
 _LT_DECL([], [max_cmd_len], [0],
     [What is the maximum length of a command?])
-])# LT_CMD_MAX_LEN
+])# LT_CMD_MAX_ORACLE
 
 # Old name:
-AU_ALIAS([AC_LIBTOOL_SYS_MAX_CMD_LEN], [LT_CMD_MAX_LEN])
+AU_ALIAS([AC_LIBTOOL_SYS_MAX_CMD_LEN], [LT_CMD_MAX_ORACLE])
 dnl aclocal-1.4 backwards compatibility:
-dnl AC_DEFUN([AC_LIBTOOL_SYS_MAX_CMD_LEN], [])
+dnl AC_DEFUN([AC_LIBTOOL_SYS_MAX_CMD_ORACLE], [])
 
 
 # _LT_HEADER_DLFCN

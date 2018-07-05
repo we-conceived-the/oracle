@@ -1,4 +1,4 @@
-TOR SUPPORT IN LEN CORE
+TOR SUPPORT IN ORACLE CORE
 =======================
 
 It is possible to run Oracle Core as a Tor hidden service, and connect to such services.

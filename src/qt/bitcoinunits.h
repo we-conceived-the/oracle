@@ -58,9 +58,9 @@ public:
      */
     enum Unit
     {
-        LEN,
-        mLEN,
-        uLEN,
+        ORACLE,
+        mORACLE,
+        uORACLE,
         duffs
     };
 

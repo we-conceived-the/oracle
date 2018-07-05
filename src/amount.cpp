@@ -7,7 +7,7 @@
 
 #include "tinyformat.h"
 
-const std::string CURRENCY_UNIT = "LEN";
+const std::string CURRENCY_UNIT = "ORACLE";
 
 CFeeRate::CFeeRate(const CAmount& nFeePaid, size_t nSize)
 {

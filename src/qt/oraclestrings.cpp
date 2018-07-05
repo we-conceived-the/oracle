@@ -113,7 +113,7 @@ QT_TRANSLATE_NOOP("oracle-core", ""
 "confirmation on average within n blocks (default: %u)"),
 QT_TRANSLATE_NOOP("oracle-core", ""
 "InstantSend doesn't support sending values that high yet. Transactions are "
-"currently limited to %1 LEN."),
+"currently limited to %1 ORACLE."),
 QT_TRANSLATE_NOOP("oracle-core", ""
 "InstantSend requires inputs with at least %d confirmations, you might need "
 "to wait a few minutes and try again."),
@@ -217,10 +217,10 @@ QT_TRANSLATE_NOOP("oracle-core", ""
 "Unable to locate enough PrivateSend denominated funds for this transaction."),
 QT_TRANSLATE_NOOP("oracle-core", ""
 "Unable to locate enough PrivateSend non-denominated funds for this "
-"transaction that are not equal 1000 LEN."),
+"transaction that are not equal 1000 ORACLE."),
 QT_TRANSLATE_NOOP("oracle-core", ""
 "Unable to locate enough funds for this transaction that are not equal 1000 "
-"LEN."),
+"ORACLE."),
 QT_TRANSLATE_NOOP("oracle-core", ""
 "Unsupported argument -socks found. Setting SOCKS version isn't possible "
 "anymore, only SOCKS5 proxies are supported."),
@@ -378,7 +378,7 @@ QT_TRANSLATE_NOOP("oracle-core", "Invalid port detected in masternode.conf"),
 QT_TRANSLATE_NOOP("oracle-core", "Invalid script detected."),
 QT_TRANSLATE_NOOP("oracle-core", "KeePassHttp id for the established association"),
 QT_TRANSLATE_NOOP("oracle-core", "KeePassHttp key for AES encrypted communication with KeePass"),
-QT_TRANSLATE_NOOP("oracle-core", "Keep N LEN anonymized (default: %u)"),
+QT_TRANSLATE_NOOP("oracle-core", "Keep N ORACLE anonymized (default: %u)"),
 QT_TRANSLATE_NOOP("oracle-core", "Keep at most <n> unconnectable transactions in memory (default: %u)"),
 QT_TRANSLATE_NOOP("oracle-core", "Keep the transaction memory pool below <n> megabytes (default: %u)"),
 QT_TRANSLATE_NOOP("oracle-core", "Last PrivateSend was too recent."),

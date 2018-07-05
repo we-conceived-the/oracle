@@ -20,9 +20,9 @@ BitcoinUnits::BitcoinUnits(QObject *parent):
 QList<BitcoinUnits::Unit> BitcoinUnits::availableUnits()
 {
     QList<BitcoinUnits::Unit> unitlist;
-    unitlist.append(LEN);
+    unitlist.append(ORACLE);
     unitlist.append(mLEN);
-    unitlist.append(uLEN);
+    unitlist.append(uORACLE);
     unitlist.append(duffs);
     return unitlist;
 }
@@ -31,9 +31,9 @@ bool BitcoinUnits::valid(int unit)
 {
     switch(unit)
     {
-    case LEN:
-    case mLEN:
-    case uLEN:
+    case ORACLE:
+    case mORACLE:
+    case uORACLE:
     case duffs:
         return true;
     default:
@@ -47,9 +47,9 @@ QString BitcoinUnits::name(int unit)
     {
         switch(unit)
         {
-            case LEN: return QString("LEN");
-            case mLEN: return QString("mLEN");
-            case uLEN: return QString::fromUtf8("μLEN");
+            case ORACLE: return QString("ORACLE");
+            case mORACLE: return QString("mORACLE");
+            case uORACLE: return QString::fromUtf8("μORACLE");
             case duffs: return QString("duffs");
             default: return QString("???");
         }
@@ -58,9 +58,9 @@ QString BitcoinUnits::name(int unit)
     {
         switch(unit)
         {
-            case LEN: return QString("tLEN");
-            case mLEN: return QString("mtLEN");
-            case uLEN: return QString::fromUtf8("μtLEN");
+            case ORACLE: return QString("tORACLE");
+            case mORACLE: return QString("mtORACLE");
+            case uORACLE: return QString::fromUtf8("μtORACLE");
             case duffs: return QString("tduffs");
             default: return QString("???");
         }
@@ -73,9 +73,9 @@ QString BitcoinUnits::description(int unit)
     {
         switch(unit)
         {
-            case LEN: return QString("Oracle");
-            case mLEN: return QString("Milli-Oracle (1 / 1" THIN_SP_UTF8 "000)");
-            case uLEN: return QString("Micro-Oracle (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
+            case ORACLE: return QString("Oracle");
+            case mORACLE: return QString("Milli-Oracle (1 / 1" THIN_SP_UTF8 "000)");
+            case uORACLE: return QString("Micro-Oracle (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
             case duffs: return QString("Ten Nano-Oracle (1 / 100" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
             default: return QString("???");
         }
@@ -84,9 +84,9 @@ QString BitcoinUnits::description(int unit)
     {
         switch(unit)
         {
-            case LEN: return QString("TestOracles");
-            case mLEN: return QString("Milli-TestOracle (1 / 1" THIN_SP_UTF8 "000)");
-            case uLEN: return QString("Micro-TestOracle (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
+            case ORACLE: return QString("TestOracles");
+            case mORACLE: return QString("Milli-TestOracle (1 / 1" THIN_SP_UTF8 "000)");
+            case uORACLE: return QString("Micro-TestOracle (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
             case duffs: return QString("Ten Nano-TestOracle (1 / 100" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
             default: return QString("???");
         }
@@ -97,9 +97,9 @@ qint64 BitcoinUnits::factor(int unit)
 {
     switch(unit)
     {
-    case LEN:  return 100000000;
-    case mLEN: return 100000;
-    case uLEN: return 100;
+    case ORACLE:  return 100000000;
+    case mORACLE: return 100000;
+    case uORACLE: return 100;
     case duffs: return 1;
     default:   return 100000000;
     }
@@ -109,9 +109,9 @@ int BitcoinUnits::decimals(int unit)
 {
     switch(unit)
     {
-    case LEN: return 8;
-    case mLEN: return 5;
-    case uLEN: return 2;
+    case ORACLE: return 8;
+    case mORACLE: return 5;
+    case uORACLE: return 2;
     case duffs: return 0;
     default: return 0;
     }
