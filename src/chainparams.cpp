@@ -114,7 +114,7 @@ public:
         pchMessageStart[2] = 0xcb;
         pchMessageStart[3] = 0x4a;
         vAlertPubKey = ParseHex("041fa45df1824f0a439808581cc41b4ea820ef6fdb7b016239cfd8f9bce67f5b906b30d6a572c818ba1214ca220adebbe3a4a3c4a23b167b27717f4cd3315d1ed5");
-        nDefaultPort = 13444;
+        nDefaultPort = 13433;
         nMaxTipAge = 24 * 60 * 60;
         nPruneAfterHeight = 100000;
 
@@ -212,7 +212,7 @@ public:
         pchMessageStart[2] = 0xb5;
         pchMessageStart[3] = 0x6c;
         vAlertPubKey = ParseHex("04cfcb4de590bde0ab604dab672044c3f6b14ca003421bb5f6cdba3c23b4cb415dbb156407f84db74605fc7e4c8088183ac87fdff099dc03a5333e4858a9cd80e1"); //testnetalert public key
-        nDefaultPort = 13555;
+        nDefaultPort = 13533;
         nMaxTipAge = 0x7fffffff; // allow mining on top of old blocks for testnet
         nPruneAfterHeight = 1000;
 
@@ -305,7 +305,7 @@ public:
         pchMessageStart[2] = 0xd1;
         pchMessageStart[3] = 0xab;
         nMaxTipAge = 30 * 24 * 60 * 60; // ~144 blocks behind -> 2 x fork detection time, was 24 * 60 * 60 in bitcoin
-        nDefaultPort = 13666;
+        nDefaultPort = 13633;
         nPruneAfterHeight = 1000;
 
         genesis = CreateGenesisBlock(1530903604, 1, 0x207fffff, 1, 100 * COIN);
